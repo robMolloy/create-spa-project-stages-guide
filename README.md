@@ -4,10 +4,11 @@ Any project plan needs to be broken up into smaller steps. Here is one recommend
 
 Some of the advantages of using this guide are as follows;
 
-- <b>Seperation:</b> keeping each task separate allows for developers at a wide-range of abilities to add to the project.
+- <b>Separation:</b> keeping each task separate allows for developers at a wide-range of abilities to add to the project.
 - <b>Dependency-independent:</b> where upstream dependencies may take time to complete, this project plan allows for development to continue until they are.
-- <b>Iterative</b> - these steps can be followed for one part of your project, then done again for the next part and so on.
-- <b>Familiarity:</b> Having familiarity with one way of completing a project will give you an chance to work out what works for you - feel free to clone this and edit this to your preferences or perhaps start your own one from scratch if you'd prefer.
+- <b>Iterative</b> these steps can be followed for one part of your project, then done again for the next part and so on.
+- <b>Familiarity:</b> having familiarity with one way of completing a project will give you an chance to work out what works for you - feel free to clone this and edit this to your preferences or perhaps start your own one from scratch if you'd prefer.
+- <b>No mocks:</b> using mocks sucks! They are hard work to implement and a whole load of boiler plate and confusing code gets left behind once they are no longer being used.
 
 It may make sense to read this guide the whole way through before starting a project;
 
@@ -93,8 +94,7 @@ This stage must be done in the following order;
 
 1. Connect your state to APIs/DBs etc - on load make a call that gets the dependency data then loads your state.
 2. Once connected, replace `console.log('async requst made here')` with the correct async call to your API/DB.
+3. Remove the temporary UI if working - don't delete this if you think it may be of use later.
 3. By completing steps 5.1 & 5.2, you are making "optimistic upates" - ie you are always assuming that the updates will work. Think about if this is your preferred behaviour for each scenario and what could potentially go wrong if a call to the APIs/DBs is assumed to have worked but, in fact, failed.
 4. This is optional based on your preferred behaviour. Refactor so that the changes to the state only happen after a successful call to the API - we can call these "patient updates". 
 5. Additionally you may want create some conditions that show a loading state in the UI - to implement this go through the relevant parts of stages 1-5 again. 
-
-
